@@ -1,5 +1,5 @@
 const { Builder, By, Key, until } = require('selenium-webdriver');
-const Contact = require('../../models/contactls/contact');
+const Contact = require('../models/contact');
 
 const sendMessage = async (message) => {
     console.log('sendMessage js ');
