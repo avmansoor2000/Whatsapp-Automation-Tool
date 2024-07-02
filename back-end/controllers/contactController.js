@@ -2,15 +2,18 @@ const express = require('express');
 const router = express.Router();
 const Contact = require('../models/contact');
 
-router.get('/', async (req, res) => {
+const getContacts = async(req,res) =>{
     const contacts = await Contact.find();
     res.json(contacts);
-});
+}
 
-router.post('/', async (req, res) => {
+const postContact = async (req, res) => {
     const newContact = new Contact(req.body);
     await newContact.save();
     res.json(newContact);
-});
+};
 
-module.exports = router;
+module.exports = { 
+    postContact,
+    getContacts
+}

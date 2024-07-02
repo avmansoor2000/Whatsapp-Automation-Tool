@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// DB Connected
 connectDB()
 
 const contactRoutes = require('./routes/contactRoutes');

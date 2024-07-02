@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const sendMessage = require('../webDriver/webDriver');
+const {sendMessage} = require('../controllers/messageController')
 
-router.post('/', async (req, res) => {
-    const { message } = req.body;
-    const result = await sendMessage(message);
-    res.json(result);
-});
+
+router.post('/',sendMessage)
 
 module.exports = router;
