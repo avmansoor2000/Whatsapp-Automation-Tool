@@ -10,7 +10,7 @@ const getContacts = async(req,res) =>{
 const postContact = async (req, res) => {
     const newContact = new Contact(req.body);
     await newContact.save();
-    res.json(newContact);
+    return res.json(newContact);
 };
 
 module.exports = { 

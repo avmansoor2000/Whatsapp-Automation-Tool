@@ -1,7 +1,32 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {useForm} from 'react-hook-form'
+import {User} from '../../api/User'
 import './login.css'
 
 const login = () => {
+    const {register,handleSubmit} = useForm()
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+
+    const onSubmit = async(req,res) => {
+
+        try{
+        const formData = {
+            email : email,
+            password : password
+        }
+        const response = await User(formData)
+        console.log('response waiting');
+
+        if(response.success){
+            console.log(response);
+          }else{
+            console.log(response);
+          }
+    }catch(error){
+        console.error('Error Login:', error);
+    }
+    }
     return (
         <div className="main-container">
             <div className="login-box">
@@ -10,12 +35,18 @@ const login = () => {
                     <h1>Login</h1>
                 </div>
                 <div className="login-form">
-                    <form action="">
+                    <form action="" onSubmit={handleSubmit(onSubmit)}>
                         <label htmlFor="">Email</label>
-                        <input type="email" placeholder='email' />
+                        <input 
+                        {...register("email", { required: true })}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        type="email" placeholder='email' />
                         {/* <br /> */}
                         <label htmlFor="">Password</label>
-                        <input type="password" placeholder='password' />
+                        <input 
+                        {...register("password", { required: true })}
+                        onChange={(e)=>setPassword(e.target.value)}
+                        type="password" placeholder='password' />
                         <button>submit</button>
                     </form>
                 </div>
