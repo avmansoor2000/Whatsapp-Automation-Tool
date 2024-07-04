@@ -1,26 +1,36 @@
 .main-container{
     width: 100vw;
     height: 100vh;
+}
+.signup-box{
+    width: 70%;
+    height: 70%;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+.heading-box{
     display: flex;
     justify-content: center;
 }
-.signup-box{
-    width: 100%;
-    height: 80%;
-    display: flex;
-    /* justify-content: center; */
-    padding: 20px;
-    /* background-color: brown; */
+.heading-box h1{
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.heading{
-    /* position: absolute; */
+.form-box{
     display: flex;
-    margin-left: 399px;
-    justify-content: right;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 29px;
 }
 .signup-box form{
     display: flex;
     flex-direction: column;
+
+}
+.signup-box form label,
+.signup-box form input
+{
+    font-weight: 700;
 
 }
 .signup-box label {

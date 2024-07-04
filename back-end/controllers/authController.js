@@ -3,17 +3,19 @@ const User = require('../models/user')
 
 
 // User Signup
-const signup = (req,res) => {
-    const {name,email,password,phoneNumber} = req.body;
+const signup = async(req,res) => {
+    console.log("hiiiiiiiii");
+    console.log(req.body);
+    const {name,email,password,number} = req.body;
     try{
         const newUser = new User({
             name,
             email,
             password,
-            phoneNumber
+            number
         })
         console.log(newUser);
-        newUser.save()
+        await newUser.save()
 
         return res.status(200).json('Success')
        

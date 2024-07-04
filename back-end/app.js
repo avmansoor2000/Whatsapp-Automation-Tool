@@ -1,10 +1,11 @@
 const express = require('express');
 // const mongoose = require('mongoose');
-const connectDB = require('./config/connection')
+// const connectDB = require('./config/connection')
+const mongoose = require('mongoose')
 const cors = require('cors');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
-dotenv.config();
+require('dotenv').config();
 
 const app = express();
 
@@ -16,8 +17,10 @@ app.use(cors({
     origin: 'http://localhost:5173'
   }));
 
+  const uri = process.env.MONGO_URI;
 // DB Connected
-connectDB()
+mongoose.connect(uri)
+
 
 const contactRoutes = require('./routes/contactRoutes');
 const sendMessageRoutes = require('./routes/messageRoutes');
